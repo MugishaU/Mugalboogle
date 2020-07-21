@@ -6,6 +6,7 @@ let question;
 search.addEventListener("click", (event) => {
   event.preventDefault();
   question = form.input.value; //BUG: breaks when '&' is included in search
+  question = titleCase(question);
   console.log(question + " search");
   fetch(`http://localhost:3000/search?q=${question}`);
 });
@@ -13,6 +14,13 @@ search.addEventListener("click", (event) => {
 lucky.addEventListener("click", (event) => {
   event.preventDefault();
   question = form.input.value;
+  question = titleCase(question);
   console.log(question + " lucky");
   fetch(`http://localhost:3000/lucky?q=${question}`);
 });
+
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  }).join(' ');
+}

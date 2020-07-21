@@ -1,8 +1,3 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
-const port = 3000;
-
 let movies = [
     {
       "title": "The Shawshank Redemption",
@@ -2973,23 +2968,16 @@ let movies = [
     }
   ]
 
-app.use(cors());
+function movieSearch(searchTerm) {
+  return movies.filter(movie => movie.title.includes(searchTerm) || movie.genre.includes(searchTerm));
+}
 
-app.get('/movies', (req, res) => {
-  res.send(movies);
-});
+let words = "hello there albie";
 
-app.get("/search", (req, res) => {
-  let searchTerm = req.query.q;
-  res.send(movies.filter(movie => movie.title.includes(searchTerm) || movie.director.includes(searchTerm) || movie.genre.includes(searchTerm)).slice(0, 10));
-});
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  }).join(' ');
+}
 
-app.get("/lucky", (req, res) => {
-  let luckyTerm = req.query.q;
-  let choices = movies.filter(movie => movie.title.includes(luckyTerm) || movie.director.includes(luckyTerm) || movie.genre.includes(luckyTerm));
-  res.send(choices[Math.floor(Math.random() * choices.length)]);
-});
-
-app.listen(port, () =>
-  console.log(`Express server running at http://localhost:${port}`)
-);
+console.log(titleCase(words));
