@@ -7,3 +7,11 @@ app.use(cors());
 app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}`)
 );
+
+app.get("/search", (req, res) => {
+  res.send("Searched from server");
+});
+
+app.get("/lucky", (req, res) => {
+  res.send("Lucky from server");
+});
