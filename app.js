@@ -10,8 +10,10 @@ app.listen(port, () =>
 
 app.get("/search", (req, res) => {
   res.send("Searched from server");
+  console.log(req.query.q);
 });
 
 app.get("/lucky", (req, res) => {
   res.send("Lucky from server");
+  console.log(req.query.q);
 });

@@ -5,14 +5,14 @@ let question;
 
 search.addEventListener("click", (event) => {
   event.preventDefault();
-  question = form.input.value;
+  question = form.input.value; //BUG: breaks when '&' is included in search
   console.log(question + " search");
-  fetch("http://localhost:3000/search");
+  fetch(`http://localhost:3000/search?q=${question}`);
 });
 
 lucky.addEventListener("click", (event) => {
   event.preventDefault();
   question = form.input.value;
   console.log(question + " lucky");
-  fetch("http://localhost:3000/lucky");
+  fetch(`http://localhost:3000/lucky?q=${question}`);
 });
