@@ -2015,29 +2015,25 @@ app.get("/movies", (req, res) => {
 
 app.get("/search", (req, res) => {
   let searchTerm = req.query.q;
-  res.send(
-    movies
-      .filter(
-        (movie) =>
-          movie.title.includes(searchTerm) ||
-          movie.director.includes(searchTerm) ||
-          movie.genre.includes(searchTerm)
-      )
-      .slice(0, 10)
-  );
+  let choices = filmSearch(searchTerm);
+  res.send(choices.slice(0, 10));
 });
 
 app.get("/lucky", (req, res) => {
   let luckyTerm = req.query.q;
-  let choices = movies.filter(
-    (movie) =>
-      movie.title.includes(luckyTerm) ||
-      movie.director.includes(luckyTerm) ||
-      movie.genre.includes(luckyTerm)
-  );
+  let choices = filmSearch(luckyTerm);
   res.send(choices[0]);
 });
 
 app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}`)
 );
+
+const filmSearch = (searchTerm) => {
+  return movies.filter(
+    (movie) =>
+      movie.title.includes(searchTerm) ||
+      movie.director.includes(searchTerm) ||
+      movie.genre.includes(searchTerm)
+  );
+};
