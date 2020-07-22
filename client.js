@@ -11,7 +11,10 @@ search.addEventListener("click", (event) => {
   fetch(`http://localhost:3000/search?q=${question}`)
     .then((r) => r.json())
     .then((data) => displayData(data))
-    .catch((err) => console.warn("Server Connection Issue"));
+    .catch((err) => {
+      document.getElementById("0").style.visibility = "visible";
+      document.getElementById("0").textContent = "Server Connection Issue";
+    });
 });
 
 lucky.addEventListener("click", (event) => {
@@ -21,7 +24,10 @@ lucky.addEventListener("click", (event) => {
   fetch(`http://localhost:3000/lucky?q=${question}`)
     .then((r) => r.json())
     .then(openLucky)
-    .catch((err) => console.warn("Server Connection Issue"));
+    .catch((err) => {
+      document.getElementById("0").style.visibility = "visible";
+      document.getElementById("0").textContent = "Server Connection Issue";
+    });
 });
 
 function titleCase(str) {
