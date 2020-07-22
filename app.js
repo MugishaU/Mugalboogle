@@ -2039,6 +2039,7 @@ const filmSearch = (searchTerm) => {
     (movie) =>
       movie.title.includes(searchTerm) ||
       movie.director.includes(searchTerm) ||
-      movie.genre.includes(searchTerm)
+      movie.genre.includes(searchTerm) ||
+      movie.year == searchTerm
   );
 };
