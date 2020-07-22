@@ -2025,7 +2025,9 @@ app.get("/search", (req, res) => {
 app.get("/lucky", (req, res) => {
   let luckyTerm = req.query.q;
   let choices = filmSearch(luckyTerm);
-  res.send(choices[0]);
+  choices.length > 0
+    ? res.send(JSON.stringify(choices[0]))
+    : res.send(JSON.stringify(`"${luckyTerm}" did not return any results!`));
 });
 
 app.listen(port, () =>

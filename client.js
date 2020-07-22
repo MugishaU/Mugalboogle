@@ -17,10 +17,10 @@ lucky.addEventListener("click", (event) => {
   event.preventDefault();
   question = form.input.value;
   question = titleCase(question);
-  console.log(question + " lucky");
   fetch(`http://localhost:3000/lucky?q=${question}`)
     .then((r) => r.json())
-    .then(openLucky);
+    .then(openLucky)
+    .catch((err) => console.warn("Server Connection Issue"));
 });
 
 function titleCase(str) {
@@ -35,5 +35,7 @@ function titleCase(str) {
 
 function openLucky(film) {
   let filmTitle = film.title;
-  return window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
+  filmTitle === undefined
+    ? console.log("No results to open!")
+    : window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
 }
