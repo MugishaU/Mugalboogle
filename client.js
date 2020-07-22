@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const lucky = document.getElementById("lucky");
+const results = document.getElementById("results");
 let question;
 
 search.addEventListener("click", (event) => {
@@ -9,6 +10,7 @@ search.addEventListener("click", (event) => {
   question = titleCase(question);
   fetch(`http://localhost:3000/search?q=${question}`)
     .then((r) => r.json())
+    .then(renderResults)
     .then((data) => console.log(data))
     .catch((err) => console.warn("Server Connection Issue"));
 });
@@ -38,4 +40,9 @@ function openLucky(film) {
   filmTitle === undefined
     ? console.log("No results to open!")
     : window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
+}
+
+function renderResults(data) {
+  let filmResults = JSON.stringify(data);
+  results.textContent = filmResults;
 }
