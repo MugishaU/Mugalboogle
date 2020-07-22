@@ -45,10 +45,15 @@ function displayData(data) {
   for (let i = 0; i < 10; i++) {
     document.getElementById(i).style.visibility = "hidden";
   }
-  for (index in data) {
-    document.getElementById(index).style.visibility = "visible";
-    document.getElementById(
-      index
-    ).textContent = `Title: ${data[index].title}    Director: ${data[index].director}     Year: ${data[index].year}`;
+  if (typeof data === "object") {
+    for (index in data) {
+      document.getElementById(index).style.visibility = "visible";
+      document.getElementById(
+        index
+      ).textContent = `Title: ${data[index].title}    Director: ${data[index].director}     Year: ${data[index].year}`;
+    }
+  } else {
+    document.getElementById("0").style.visibility = "visible";
+    document.getElementById("0").textContent = data;
   }
 }
