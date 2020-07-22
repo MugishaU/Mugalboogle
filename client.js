@@ -42,7 +42,11 @@ function openLucky(film) {
 }
 
 function displayData(data) {
+  for (let i = 0; i < 10; i++) {
+    document.getElementById(i).style.visibility = "hidden";
+  }
   for (index in data) {
+    document.getElementById(index).style.visibility = "visible";
     document.getElementById(
       index
     ).textContent = `Title: ${data[index].title}    Director: ${data[index].director}     Year: ${data[index].year}`;
