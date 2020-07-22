@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const lucky = document.getElementById("lucky");
+const results = document.getElementById("results");
 let question;
 
 search.addEventListener("click", (event) => {
