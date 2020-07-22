@@ -2987,7 +2987,7 @@ app.get("/search", (req, res) => {
 app.get("/lucky", (req, res) => {
   let luckyTerm = req.query.q;
   let choices = movies.filter(movie => movie.title.includes(luckyTerm) || movie.director.includes(luckyTerm) || movie.genre.includes(luckyTerm));
-  res.send(choices[Math.floor(Math.random() * choices.length)]);
+  res.send(choices[0]);
 });
 
 app.listen(port, () =>

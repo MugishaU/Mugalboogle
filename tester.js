@@ -2972,12 +2972,14 @@ function movieSearch(searchTerm) {
   return movies.filter(movie => movie.title.includes(searchTerm) || movie.genre.includes(searchTerm));
 }
 
+console.log(movieSearch("Dark"));
+
 let words = "hello there albie";
 
-function titleCase(str) {
-  return str.toLowerCase().split(' ').map(function(word) {
-    return (word.charAt(0).toUpperCase() + word.slice(1));
-  }).join(' ');
-}
-
-console.log(titleCase(words));
+// function titleCase(str) {
+//   return str.toLowerCase().split(' ').map(function(word) {
+//     return (word.charAt(0).toUpperCase() + word.slice(1));
+//   }).join(' ');
+// }
+//
+// console.log(titleCase(words));
