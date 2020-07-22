@@ -12,6 +12,9 @@ search.addEventListener("click", (event) => {
     .then((r) => r.json())
     .then((data) => displayData(data))
     .catch((err) => {
+      for (let i = 0; i < 10; i++) {
+        document.getElementById(i).style.visibility = "hidden";
+      }
       document.getElementById("0").style.visibility = "visible";
       document.getElementById("0").textContent = "Server Connection Issue";
     });
@@ -25,6 +28,9 @@ lucky.addEventListener("click", (event) => {
     .then((r) => r.json())
     .then(openLucky)
     .catch((err) => {
+      for (let i = 0; i < 10; i++) {
+        document.getElementById(i).style.visibility = "hidden";
+      }
       document.getElementById("0").style.visibility = "visible";
       document.getElementById("0").textContent = "Server Connection Issue";
     });
