@@ -2019,10 +2019,10 @@ app.get("/search", (req, res) => {
   choices.length > 0
     ? res.send(JSON.stringify(choices.slice(0, 10)))
     : res.send(JSON.stringify(`"${searchTerm}" did not return any results!`));
-  // res.send(JSON.stringify(choices.slice(0, 10)));
 });
 
 app.get("/lucky", (req, res) => {
+  //Make route names more linked
   let luckyTerm = req.query.q;
   let choices = filmSearch(luckyTerm);
   choices.length > 0
