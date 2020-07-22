@@ -61,7 +61,7 @@ function displayData(data) {
       document.getElementById(index).style.visibility = "visible";
       document.getElementById(
         index
-      ).textContent = `Title: ${data[index].title}    Director: ${data[index].director}     Year: ${data[index].year}`;
+      ).innerHTML = `<p>Title: ${data[index].title}</p><p>Director: ${data[index].director}</p><p>Year: ${data[index].year}</p><hr>`;
     }
   } else {
     document.getElementById("0").style.visibility = "visible";
