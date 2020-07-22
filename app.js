@@ -2016,7 +2016,10 @@ app.get("/movies", (req, res) => {
 app.get("/search", (req, res) => {
   let searchTerm = req.query.q;
   let choices = filmSearch(searchTerm);
-  res.send(choices.slice(0, 10));
+  choices.length > 0
+    ? res.send(JSON.stringify(choices.slice(0, 10)))
+    : res.send(JSON.stringify(`"${searchTerm}" did not return any results!`));
+  // res.send(JSON.stringify(choices.slice(0, 10)));
 });
 
 app.get("/lucky", (req, res) => {
