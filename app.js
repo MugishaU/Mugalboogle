@@ -2027,7 +2027,7 @@ app.get("/lucky", (req, res) => {
   let choices = filmSearch(luckyTerm);
   choices.length > 0
     ? res.send(JSON.stringify(choices[0]))
-    : res.send(JSON.stringify(`"${luckyTerm}" did not return any results!`));
+    : res.send(JSON.stringify(false));
 });
 
 app.listen(port, () =>

@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const lucky = document.getElementById("lucky");
+
 let question;
 
 search.addEventListener("click", (event) => {
@@ -34,10 +35,15 @@ function titleCase(str) {
 }
 
 function openLucky(film) {
-  let filmTitle = film.title;
-  filmTitle === undefined
-    ? console.log("No results to open!")
-    : window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
+  if (film) {
+    let filmTitle = film.title;
+    window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
+  } else {
+    document.getElementById("0").style.visibility = "visible";
+    document.getElementById(
+      "0"
+    ).textContent = `"${question}" did not return any results!`;
+  }
 }
 
 function displayData(data) {
