@@ -9,7 +9,7 @@ search.addEventListener("click", (event) => {
   question = titleCase(question);
   fetch(`http://localhost:3000/search?q=${question}`)
     .then((r) => r.json())
-    .then((data) => console.log(data))
+    .then((data) => displayData(data))
     .catch((err) => console.warn("Server Connection Issue"));
 });
 
@@ -38,4 +38,12 @@ function openLucky(film) {
   filmTitle === undefined
     ? console.log("No results to open!")
     : window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
+}
+
+function displayData(data) {
+  for (index in data) {
+    document.getElementById(
+      index
+    ).textContent = `Title: ${data[index].title}    Director: ${data[index].director}     Year: ${data[index].year}`;
+  }
 }
