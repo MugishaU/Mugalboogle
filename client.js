@@ -7,8 +7,13 @@ let question;
 search.addEventListener("click", (event) => {
   event.preventDefault();
   question = form.input.value; //BUG: breaks when '&' is included in search
+  let question_edit = "";
+  for (letter of question) {
+    letter === "&" ? (question_edit += "%26") : (question_edit += letter);
+  }
+
   question = titleCase(question);
-  fetch(`http://localhost:3000/search?q=${question}`)
+  fetch(`http://localhost:3000/search?q=${question_edit}`)
     .then((r) => r.json())
     .then((data) => displayData(data))
     .catch((err) => {
