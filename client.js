@@ -6,7 +6,7 @@ let question;
 
 search.addEventListener("click", (event) => {
   event.preventDefault();
-  question = form.input.value; //BUG: breaks when '&' is included in search
+  question = form.input.value;
   let question_edit = "";
   for (letter of question) {
     letter === "&" ? (question_edit += "%26") : (question_edit += letter);
