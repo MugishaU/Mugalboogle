@@ -1,31 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MugalBoogle</title>
     <script defer src="client.js"></script>
-    <link href="/styles.css" rel="stylesheet"/>
-</head>
-<body>
-    <h1>MugalBoogle</h1>
-    <section>
-        <form id= "form">
-            <input id="input" type="text" placeholder="Search Title, Director or Genre"></input>
-            <input id="search" type="submit" value="Search">
-            <input id="lucky" type="submit" value="One Hit Wonder">
-        </form>
-    </section>
-    <p id="0"></p>
-    <p id="1"></p>
-    <p id="2"></p>
-    <p id="3"></p>
-    <p id="4"></p>
-    <p id="5"></p>
-    <p id="6"></p>
-    <p id="7"></p>
-    <p id="8"></p>
-    <p id="9"></p>
-
-</body>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Poppins:wght@600&family=Roboto:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <span class="blue">M</span><span class="red">u</span
+        ><span class="yellow">g</span><span class="blue">a</span
+        ><span class="green">l</span><span class="blue">B</span
+        ><span class="red">o</span><span class="yellow">o</span
+        ><span class="blue">g</span><span class="green">l</span
+        ><span class="red">e</span
+        ><span class="multicolor"> <i class="fas fa-film"></i></span>
+      </h1>
+      <h3 id="top">
+        Your first stop for <del>all</del>
+        <span class="hand"
+          ><u><em>most</em></u></span
+        >
+        things film
+      </h3>
+      <h3 id="bottom" class="hand">(only the good ones)</h3>
+      <form id="form">
+        <input
+          id="input"
+          type="text"
+          placeholder="Search by Title, Director, Genre or Year..."
+        />
+        <input id="search" type="submit" value="Search" />
+        <input id="lucky" type="submit" value="One Hit Wonder" />
+      </form>
+    </header>
+    <main>
+      <div id="0"></div>
+      <div id="1"></div>
+      <div id="2"></div>
+      <div id="3"></div>
+      <div id="4"></div>
+      <div id="5"></div>
+      <div id="6"></div>
+      <div id="7"></div>
+      <div id="8"></div>
+      <div id="9"></div>
+    </main>
+  </body>
 </html>

@@ -1,17 +1,30 @@
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const lucky = document.getElementById("lucky");
-const results = document.getElementById("results");
+
 let question;
 
 search.addEventListener("click", (event) => {
   event.preventDefault();
-  question = form.input.value; //BUG: breaks when '&' is included in search
-  question = titleCase(question);
-  fetch(`http://localhost:3000/search?q=${question}`)
+  question = form.input.value;
+  let question_edit = "";
+  for (letter of question) {
+    letter === "&" ? (question_edit += "%26") : (question_edit += letter);
+  }
+
+  question_edit = titleCase(question_edit);
+  fetch(`http://localhost:3000/search?q=${question_edit}`)
     .then((r) => r.json())
     .then((data) => displayData(data))
-    .catch((err) => console.warn("Server Connection Issue"));
+    .catch((err) => {
+      for (let i = 0; i < 10; i++) {
+        document.getElementById(i).style.visibility = "hidden";
+      }
+      document.getElementById("0").style.visibility = "visible";
+      document.getElementById(
+        "0"
+      ).innerHTML = `<h2><span><i class="fas fa-skull-crossbones fa-lg"></i></span> Server Connection Issue</h2>`;
+    });
 });
 
 lucky.addEventListener("click", (event) => {
@@ -21,7 +34,15 @@ lucky.addEventListener("click", (event) => {
   fetch(`http://localhost:3000/lucky?q=${question}`)
     .then((r) => r.json())
     .then(openLucky)
-    .catch((err) => console.warn("Server Connection Issue"));
+    .catch((err) => {
+      for (let i = 0; i < 10; i++) {
+        document.getElementById(i).style.visibility = "hidden";
+      }
+      document.getElementById("0").style.visibility = "visible";
+      document.getElementById(
+        "0"
+      ).innerHTML = `<h2><span><i class="fas fa-skull-crossbones fa-lg"></i></span> Server Connection Issue</h2>`;
+    });
 });
 
 function titleCase(str) {
@@ -35,10 +56,15 @@ function titleCase(str) {
 }
 
 function openLucky(film) {
-  let filmTitle = film.title;
-  filmTitle === undefined
-    ? console.log("No results to open!")
-    : window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
+  if (film) {
+    let filmTitle = film.title;
+    window.open(`https://en.wikipedia.org/wiki/${filmTitle}`);
+  } else {
+    document.getElementById("0").style.visibility = "visible";
+    document.getElementById(
+      "0"
+    ).innerHTML = `<br><h2><span><i class="fas fa-exclamation-circle fa-lg"></i></span> "${question}" did not return any results!</h2><h3 class="hand">(Pick a better film!)</h3>`;
+  }
 }
 
 function displayData(data) {
@@ -50,10 +76,12 @@ function displayData(data) {
       document.getElementById(index).style.visibility = "visible";
       document.getElementById(
         index
-      ).textContent = `Title: ${data[index].title}    Director: ${data[index].director}     Year: ${data[index].year}`;
+      ).innerHTML = `<p><strong>Title:</strong> ${data[index].title}</p><p><strong>Director:</strong> ${data[index].director}</p><p><strong>Year:</strong> ${data[index].year}</p><p><strong>IMDb Rating:</strong> ${data[index].rate}</p><hr>`;
     }
   } else {
     document.getElementById("0").style.visibility = "visible";
-    document.getElementById("0").textContent = data;
+    document.getElementById(
+      "0"
+    ).innerHTML = `<br><h2><span><i class="fas fa-exclamation-circle fa-lg"></i></span> ${data}</h2><h3 class="hand">(Pick a better film!)</h3>`;
   }
 }
