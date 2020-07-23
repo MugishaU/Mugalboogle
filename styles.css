@@ -28,7 +28,7 @@ input[type="submit"] {
   width: 100%;
 }
 
-section {
+header {
   max-width: 400px;
   margin: 0 auto;
 }
