@@ -21,7 +21,9 @@ search.addEventListener("click", (event) => {
         document.getElementById(i).style.visibility = "hidden";
       }
       document.getElementById("0").style.visibility = "visible";
-      document.getElementById("0").textContent = "Server Connection Issue";
+      document.getElementById(
+        "0"
+      ).innerHTML = `<h2><span><i class="fas fa-skull-crossbones fa-lg"></i></span> Server Connection Issue</h2>`;
     });
 });
 
@@ -37,7 +39,9 @@ lucky.addEventListener("click", (event) => {
         document.getElementById(i).style.visibility = "hidden";
       }
       document.getElementById("0").style.visibility = "visible";
-      document.getElementById("0").textContent = "Server Connection Issue";
+      document.getElementById(
+        "0"
+      ).innerHTML = `<h2><span><i class="fas fa-skull-crossbones fa-lg"></i></span> Server Connection Issue</h2>`;
     });
 });
 
@@ -59,7 +63,7 @@ function openLucky(film) {
     document.getElementById("0").style.visibility = "visible";
     document.getElementById(
       "0"
-    ).textContent = `"${question}" did not return any results!`;
+    ).innerHTML = `<br><h2><span><i class="fas fa-exclamation-circle fa-lg"></i></span> "${question}" did not return any results!</h2><h3 class="hand">(Pick a better film!)</h3>`;
   }
 }
 
@@ -76,6 +80,8 @@ function displayData(data) {
     }
   } else {
     document.getElementById("0").style.visibility = "visible";
-    document.getElementById("0").textContent = data;
+    document.getElementById(
+      "0"
+    ).innerHTML = `<br><h2><span><i class="fas fa-exclamation-circle fa-lg"></i></span> ${data}</h2><h3 class="hand">(Pick a better film!)</h3>`;
   }
 }

@@ -86,3 +86,16 @@ h3 {
 #lucky:focus {
   outline: none;
 }
+.multicolor {
+  background-image: linear-gradient(
+    to left,
+    #34a853,
+    #ea4335,
+    #f4b400,
+    #4285f4
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
