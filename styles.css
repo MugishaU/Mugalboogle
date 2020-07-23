@@ -5,6 +5,7 @@ body {
   margin: auto;
   text-align: center;
   font-family: "Roboto", sans-serif;
+  font-size: 14pt;
 }
 
 h1 {
@@ -79,4 +80,9 @@ h3 {
   color: white;
   background-color: #565656;
   border-color: black;
+}
+
+#search:focus,
+#lucky:focus {
+  outline: none;
 }

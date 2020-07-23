@@ -72,7 +72,7 @@ function displayData(data) {
       document.getElementById(index).style.visibility = "visible";
       document.getElementById(
         index
-      ).innerHTML = `<p>Title: ${data[index].title}</p><p>Director: ${data[index].director}</p><p>Year: ${data[index].year}</p><p>IMDb Rating: ${data[index].rate}</p><hr>`;
+      ).innerHTML = `<p><strong>Title:</strong> ${data[index].title}</p><p><strong>Director:</strong> ${data[index].director}</p><p><strong>Year:</strong> ${data[index].year}</p><p><strong>IMDb Rating:</strong> ${data[index].rate}</p><hr>`;
     }
   } else {
     document.getElementById("0").style.visibility = "visible";
