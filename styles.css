@@ -1,34 +1,49 @@
 body {
-  width: 100%;
+  box-sizing: border-box;
+  width: 75vw;
   height: 100vh;
-}
-main {
-  max-width: 400px;
-  margin: 0 auto;
-}
-h1 {
+  margin: auto;
   text-align: center;
-  max-width: 400px;
+  font-family: "Roboto", sans-serif;
 }
 
-form {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  max-width: 400px;
+h1 {
+  font-family: "Poppins", sans-serif;
 }
 
-input[type="text"] {
-  width: 99%;
-  grid-column: 1 / span 2;
-  padding: 0;
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18pt;
 }
 
-input[type="submit"] {
-  width: 100%;
+.hand {
+  font-family: "Handlee", cursive;
+}
+#top {
+  margin-bottom: 0;
+}
+#bottom {
+  margin-top: 0;
 }
 
-header {
-  max-width: 400px;
-  margin: 0 auto;
+#input {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+  width: 60vw;
+  margin: 10px 0;
+  height: 40px;
+  font-size: 14pt;
+  padding-left: 25px;
+  border-radius: 50px;
+  border: 1.5px grey solid;
+  outline: none;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+#search,
+#lucky {
+  width: 30vw;
 }
