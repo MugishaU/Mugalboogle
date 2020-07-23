@@ -12,7 +12,7 @@ search.addEventListener("click", (event) => {
     letter === "&" ? (question_edit += "%26") : (question_edit += letter);
   }
 
-  question = titleCase(question);
+  question_edit = titleCase(question_edit);
   fetch(`http://localhost:3000/search?q=${question_edit}`)
     .then((r) => r.json())
     .then((data) => displayData(data))
